@@ -1,17 +1,13 @@
-"use client";
-
-import { useEffect, useRef, useState } from "react";
-
 type Stat = {
   prefix?: string;
-  count: number;
+  value: string;
   suffix?: string;
   label: React.ReactNode;
 };
 
 const stats: Stat[] = [
   {
-    count: 12,
+    value: "12",
     suffix: "x",
     label: (
       <>
@@ -23,7 +19,7 @@ const stats: Stat[] = [
   },
   {
     prefix: "~",
-    count: 3,
+    value: "3",
     suffix: "min",
     label: (
       <>
@@ -34,7 +30,7 @@ const stats: Stat[] = [
     ),
   },
   {
-    count: 92,
+    value: "92",
     suffix: "%",
     label: (
       <>
@@ -45,7 +41,7 @@ const stats: Stat[] = [
     ),
   },
   {
-    count: 30,
+    value: "30",
     suffix: "+",
     label: (
       <>
@@ -60,13 +56,12 @@ const stats: Stat[] = [
 export function Stats() {
   return (
     <section
-      className="relative overflow-hidden bg-[linear-gradient(135deg,rgba(11,60,93,0.92)_0%,rgba(8,44,68,0.96)_100%)] py-20 text-white"
+      className="relative overflow-hidden bg-[linear-gradient(135deg,#0B3C5D_0%,#082C44_100%)] py-20 text-white"
       style={{
         backgroundImage:
-          "linear-gradient(135deg, rgba(11,60,93,0.92) 0%, rgba(8,44,68,0.96) 100%), url('https://images.unsplash.com/photo-1466611653911-95081537e5b7?auto=format&fit=crop&w=1600&q=80')",
+          "linear-gradient(135deg, rgba(11,60,93,0.94) 0%, rgba(8,44,68,0.98) 100%), url('/solarcalc-hero-bg.png')",
         backgroundSize: "cover",
         backgroundPosition: "center",
-        backgroundAttachment: "fixed",
       }}
     >
       <div
@@ -87,8 +82,8 @@ export function Stats() {
       />
       <div className="container-x">
         <div className="relative grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
-          {stats.map((s, i) => (
-            <Stat key={i} {...s} />
+          {stats.map((s) => (
+            <Stat key={`${s.prefix ?? ""}${s.value}${s.suffix ?? ""}`} {...s} />
           ))}
         </div>
       </div>
@@ -96,37 +91,9 @@ export function Stats() {
   );
 }
 
-function Stat({ prefix = "", count, suffix = "", label }: Stat) {
-  const ref = useRef<HTMLDivElement>(null);
-  const [value, setValue] = useState(0);
-
-  useEffect(() => {
-    const node = ref.current;
-    if (!node) return;
-    const obs = new IntersectionObserver(
-      (entries) => {
-        if (!entries[0]?.isIntersecting) return;
-        obs.disconnect();
-        const duration = 1400;
-        const start = performance.now();
-        let raf = 0;
-        const tick = (now: number) => {
-          const t = Math.min((now - start) / duration, 1);
-          const eased = 1 - Math.pow(1 - t, 3);
-          setValue(Math.round(count * eased));
-          if (t < 1) raf = requestAnimationFrame(tick);
-        };
-        raf = requestAnimationFrame(tick);
-        return () => cancelAnimationFrame(raf);
-      },
-      { threshold: 0.4 },
-    );
-    obs.observe(node);
-    return () => obs.disconnect();
-  }, [count]);
-
+function Stat({ prefix = "", value, suffix = "", label }: Stat) {
   return (
-    <div ref={ref} className="text-center">
+    <div className="text-center">
       <div className="font-heading inline-block bg-[linear-gradient(180deg,#FF8A33_0%,#FF6B00_100%)] bg-clip-text text-[clamp(3rem,6vw,4rem)] font-extrabold leading-none tracking-tight text-transparent">
         {prefix}
         {value}
