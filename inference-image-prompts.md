@@ -14,6 +14,9 @@ Generated with `openai/gpt-image-2@4e59fv73`.
 | Asset | Local file | Task ID | Source URL |
 | --- | --- | --- | --- |
 | Hero background | `public/solarcalc-hero-bg.png` | `05evfpgbw8y38zz076w8qb38qp` | `https://cloud.inference.sh/app/files/t/34hpyhyd/99fr5sqi.png` |
+| Hero A2 cinematic option | `public/solarcalc-hero-a2-cinematic.png` | `7mpgzv7ejc50d29vhh560qg88r` | `https://cloud.inference.sh/app/files/t/34hpyhyd/s6nb0x7u.png` |
+| Hero A2 product option | `public/solarcalc-hero-a2-product.png` | `1zcdpa9amq1kpvmvff34f4rm4t` | `https://cloud.inference.sh/app/files/t/34hpyhyd/1atal4ox.png` |
+| Hero A2 premium option | `public/solarcalc-hero-a2-premium.png` | `2qvqcy6bkjdy5p3dazvys7z0tg` | `https://cloud.inference.sh/app/files/t/34hpyhyd/zksno9st.png` |
 | Flow step 01 | `public/solarcalc-flow-01.png` | `0jqm1htg3abvdjneg6zqy1r7xh` | `https://cloud.inference.sh/app/files/t/34hpyhyd/zv6nskn0.png` |
 | Flow step 02 | `public/solarcalc-flow-02.png` | `32kv1x37zn2ha1b63kevyzz7ep` | `https://cloud.inference.sh/app/files/t/34hpyhyd/n9f2x1x7.png` |
 | Flow step 03 | `public/solarcalc-flow-03.png` | `3ry4rt8607ryrvpzwpmz3adz0m` | `https://cloud.inference.sh/app/files/t/34hpyhyd/uvd4o1cu.png` |
