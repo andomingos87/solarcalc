@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { Logo } from "@/components/logo";
 import { CtaButton } from "@/components/cta-button";
 import { cn } from "@/lib/utils";
+import { whatsappHref } from "@/lib/whatsapp";
 
 const links = [
   { href: "#funciona", label: "Como funciona" },
@@ -43,7 +44,14 @@ export function Header() {
               {l.label}
             </a>
           ))}
-          <CtaButton href="#cta" variant="wpp" size="sm" className="group/cta">
+          <CtaButton
+            href={whatsappHref}
+            target="_blank"
+            rel="noopener noreferrer"
+            variant="wpp"
+            size="sm"
+            className="group/cta"
+          >
             Falar no WhatsApp
           </CtaButton>
         </nav>

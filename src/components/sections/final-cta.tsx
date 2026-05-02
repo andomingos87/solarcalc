@@ -1,6 +1,7 @@
 import { Zap } from "lucide-react";
 import { CtaButton } from "@/components/cta-button";
 import { Reveal } from "@/components/reveal";
+import { whatsappHref } from "@/lib/whatsapp";
 
 export function FinalCta() {
   return (
@@ -15,7 +16,15 @@ export function FinalCta() {
             <br />
             <span className="text-solar">Precisa de leads que querem comprar.</span>
           </h2>
-          <CtaButton href="#" variant="wpp" size="lg" pulse className="group/cta">
+          <CtaButton
+            href={whatsappHref}
+            target="_blank"
+            rel="noopener noreferrer"
+            variant="wpp"
+            size="lg"
+            pulse
+            className="group/cta"
+          >
             <Zap className="h-5 w-5" fill="currentColor" />
             Quero minha página com calculadora
           </CtaButton>

@@ -2,6 +2,7 @@ import { Check } from "lucide-react";
 import { CtaButton } from "@/components/cta-button";
 import { Reveal } from "@/components/reveal";
 import { SectionHead } from "@/components/section-head";
+import { whatsappHref } from "@/lib/whatsapp";
 
 const features = [
   "Página personalizada",
@@ -61,7 +62,14 @@ export function Offer() {
               ))}
             </div>
 
-            <CtaButton href="#cta" variant="solar" size="lg" className="group/cta">
+            <CtaButton
+              href={whatsappHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              variant="solar"
+              size="lg"
+              className="group/cta"
+            >
               Quero testar →
             </CtaButton>
           </div>

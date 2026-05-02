@@ -5,6 +5,7 @@ import * as motion from "motion/react-client";
 import { Calculator, MessageCircle, TrendingUp, Zap } from "lucide-react";
 import { CtaButton } from "@/components/cta-button";
 import { LogoMark } from "@/components/logo";
+import { whatsappHref } from "@/lib/whatsapp";
 
 type Step =
   | { type: "them" | "me"; delay: number; tag?: string; text: string; time: string }
@@ -118,7 +119,14 @@ export function Hero() {
               direto para sua equipe comercial.
             </p>
             <div className="mb-6 flex flex-wrap items-center gap-3">
-              <CtaButton href="#cta" variant="solar" size="lg" className="group/cta">
+              <CtaButton
+                href={whatsappHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                variant="solar"
+                size="lg"
+                className="group/cta"
+              >
                 Quero leads solares →
               </CtaButton>
               <CtaButton
